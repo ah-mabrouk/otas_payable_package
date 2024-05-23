@@ -1,0 +1,40 @@
+{
+    "name": "solutionplus/payable",
+    "description": "a laravel package to deal with otas payment handler.",
+    "type": "library",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Ahmed Mabrouk",
+            "email": "a.mabrouk@solutionplus.net"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "laravel/framework": "^9|^10",
+        "solutionplus/microservice": "dev-master"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9.1",
+        "mockery/mockery": "^1.4.4",
+        "phpunit/phpunit": "^9.5.10",
+        "spatie/laravel-ignition": "^1.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Solutionplus\\Payable\\PayableServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Solutionplus\\Payable\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
