@@ -1,4 +1,4 @@
-# Solutionplus/MicroService
+# Solutionplus/Payable
 
 solutionplus/payable is a Laravel package for dealing with specific case of payments, it doesn't suit all needs.
 
