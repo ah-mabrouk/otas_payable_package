@@ -40,15 +40,15 @@ class Payable
             'due_date' => 'required|date_format:Y-m-d H:i:s|after:' . now(),
             'payable_reference_number' => 'sometimes|string|min:10|max:25',
 
-            'name' => 'nullable|string|min:3|max:225',
-            'email' => 'nullable|email',
-            'phone' => 'nullable|min:1|digits_between:9,15',
+            'name' => 'required|string|min:3|max:225',
+            'email' => 'required|email',
+            'phone' => 'required|min:1|digits_between:9,15',
             'country_code' => 'required_with:phone|min:3|max:5',
-            'street' => 'nullable|string|min:3|max:20',
-            'city' => 'nullable|string|min:3|max:20',
-            'state' => 'nullable|string|min:3|max:20',
-            'country' => 'nullable|string|min:3|max:20',
-            'zip' => 'nullable|numeric|digits:5',
+            'street' => 'required|string|min:3|max:20',
+            'city' => 'required|string|min:3|max:20',
+            'state' => 'required|string|min:3|max:20',
+            'country' => 'required|string|min:3|max:20',
+            'zip' => 'required|numeric|digits:5',
         ], $payableData);
     }
 }
