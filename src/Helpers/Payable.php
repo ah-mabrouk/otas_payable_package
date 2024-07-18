@@ -26,14 +26,14 @@ class Payable
         return MsHttp::post(
             microserviceName: 'payment',
             uri: $this->uri,
-            data: self::validatedPayableData($payableData),
+            data: $payableData,
             additionalHeaders: $this->headers
         );
     }
 
-    public static function validatedPayableData(array $payableData)
+    public function validatedPayableData()
     {
-        return Request::validate([
+        return [
             'gateway' => 'sometimes|string|exists:gateways,name',
             'currency' => 'required|string|exists:currencies,iso_code',
             'amount' => 'required|numeric|min:1|max:9999999999',
@@ -49,6 +49,6 @@ class Payable
             'state' => 'required|string|min:3|max:20',
             'country' => 'required|string|min:3|max:20',
             'zip' => 'required|numeric|digits:5',
-        ], $payableData);
+        ];
     }
 }
