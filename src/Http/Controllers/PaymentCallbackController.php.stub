@@ -2,14 +2,16 @@
 
 namespace Solutionplus\Payable\Http\Controllers;
 
-class PaymentCallbackController extends Controller
+use Solutionplus\Payable\Contacts\PaymentCallbackContract;
+
+class PaymentCallbackController extends Controller implements PaymentCallbackContract
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleCallback()
+    public function handleCallback(): bool
     {
         return true;
     }
