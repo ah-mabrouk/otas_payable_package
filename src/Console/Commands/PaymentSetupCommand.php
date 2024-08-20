@@ -39,13 +39,20 @@ class PaymentSetupCommand extends Command
     {
         $this->info('Publishing configuration...');
 
-        $this->call('vendor:publish', [
-            '--tag' => 'controllers',
-            '--force' => true,
-        ]);
+        $this->publishConfiguration();
 
-        $this->info('Package installed and controller published!');
+        $this->info('Package installed');
 
         return Command::SUCCESS;
+    }
+
+    private function publishConfiguration()
+    {
+        $params = [
+            '--provider' => 'Solutionplus\Payable\PayableServiceProvider',
+            '--force' => true
+        ];
+
+        $this->call('vendor:publish', $params);
     }
 }

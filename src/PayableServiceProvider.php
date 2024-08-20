@@ -2,6 +2,7 @@
 
 namespace Solutionplus\Payable;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
 use Solutionplus\Payable\Console\Commands\PaymentSetupCommand;
 
@@ -32,11 +33,13 @@ class PayableServiceProvider extends ServiceProvider
                 PaymentSetupCommand::class,
             ]);
 
-            // Publish the controller
-            $this->publishes([
-                __DIR__.'/Http/Controllers/PaymentWebhookController.php' => app_path('Http/Controllers/Payment/PaymentWebhookController.php'),
-            ], 'controllers');
+            $destination = app_path('Http/Controllers/Payment/PaymentCallbackController.php');
 
+            if (!File::exists($destination)) {
+                $this->publishes([
+                    __DIR__.'/Http/Controllers/PaymentCallbackController.php.stub' => $destination,
+                ]);
+            }
         }
     }
 }
