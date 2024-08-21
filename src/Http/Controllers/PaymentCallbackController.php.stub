@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers\Payment;
+
+use App\Http\Controllers\Controller;
+use Solutionplus\Payable\Contacts\PaymentCallbackContract;
+
+class PaymentCallbackController extends Controller implements PaymentCallbackContract
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleCallback(): string
+    {
+        return '';
+    }
+}
