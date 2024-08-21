@@ -1,7 +1,8 @@
 <?php
 
-namespace Solutionplus\Payable\Http\Controllers;
+namespace App\Http\Controllers\Payment;
 
+use App\Http\Controllers\Controller;
 use Solutionplus\Payable\Contacts\PaymentCallbackContract;
 
 class PaymentCallbackController extends Controller implements PaymentCallbackContract
@@ -11,8 +12,8 @@ class PaymentCallbackController extends Controller implements PaymentCallbackCon
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleCallback(): bool
+    public function handleCallback(): string
     {
-        return true;
+        return '';
     }
 }

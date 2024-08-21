@@ -4,5 +4,5 @@ namespace Solutionplus\Payable\Contacts;
 
 interface PaymentCallbackContract
 {
-    public function handleCallback(): bool;
+    public function handleCallback(): string;
 }

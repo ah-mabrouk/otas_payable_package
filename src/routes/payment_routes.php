@@ -8,5 +8,5 @@ Route::group([
     ]
 ], function () {
 
-    Route::post('/payment-webhook', [\App\Http\Controllers\Payment\PaymentCallbackController::class, 'handle']);
+    Route::post('/payment-webhook', [\App\Http\Controllers\Payment\PaymentCallbackController::class, 'handleCallback']);
 });
