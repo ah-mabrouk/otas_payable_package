@@ -6,12 +6,10 @@ use Solutionplus\MicroService\Helpers\MsHttp;
 
 class Payable
 {
-    public string $uri;
     public array $headers = [];
 
-    public function __construct(string $companyReferenceNumber)
+    public function __construct()
     {
-        $this->uri = "companies/{$companyReferenceNumber}/payment-requests";
     }
 
     public function withHeaders(array $headers = []): self
@@ -24,7 +22,7 @@ class Payable
     {
         return MsHttp::post(
             microserviceName: 'payment',
-            uri: $this->uri,
+            uri: 'payment-requests',
             data: $payableData,
             additionalHeaders: $this->headers
         );
@@ -33,6 +31,7 @@ class Payable
     public function validatedPayableData()
     {
         return [
+            'company_reference_number' => 'sometimes|string|exists:company,company_reference_number',
             'gateway' => 'sometimes|string|exists:gateways,name',
             'currency' => 'required|string|exists:currencies,iso_code',
             'amount' => 'required|numeric|min:1|max:9999999999',
