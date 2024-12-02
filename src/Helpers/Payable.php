@@ -31,7 +31,7 @@ class Payable
     public function validatedPayableData()
     {
         return [
-            'company_reference_number' => 'sometimes|string|exists:company,company_reference_number',
+            'company_reference_number' => 'sometimes|string',
             'gateway' => 'sometimes|string|exists:gateways,name',
             'currency' => 'required|string|exists:currencies,iso_code',
             'amount' => 'required|numeric|min:1|max:9999999999',
