@@ -42,10 +42,10 @@ class Payable
             'email' => 'required|email',
             'phone' => 'required|min:1|digits_between:9,15',
             'country_code' => 'required_with:phone|min:3|max:5',
-            'street' => 'required|string|min:3|max:20',
-            'city' => 'required|string|min:3|max:20',
-            'state' => 'required|string|min:3|max:20',
-            'country' => 'required|string|min:3|max:20',
+            'street' => 'required|string|min:3|max:100',
+            'city' => 'required|string|min:1|max:100',
+            'state' => 'required|string|min:1|max:100',
+            'country' => 'required|string|min:1|max:100',
             'zip' => 'required|numeric|digits:5',
         ];
     }
